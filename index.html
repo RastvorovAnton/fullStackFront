@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Учёт моих расходов</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="main-container">
+		<div class="main-container-div">
+			<h1>Учёт моих расходов</h1>
+			<input type="text" placeholder="Куда было потрачено" id="input-where">
+			<input type="number" min="1" placeholder="Сколько было потрачено" id="input-how">
+			<button type="button">Добавить</button>
+			<p id="total-waste">Итого: р.</p>
+		</div>
+		<div id="content-container"></div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>

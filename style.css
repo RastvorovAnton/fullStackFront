@@ -1,0 +1,174 @@
+body {
+	text-align: center;
+	background-color: #80d1b7;
+	width: auto;
+}
+
+input {
+	height: 2.8em;
+	border: none;
+	font-size: 15px;
+	width: 15em;
+	border-radius: 7px;
+}
+
+button {
+	height: 2.8em;
+	width: 8em;
+	border-radius: 10px;
+	background-color: #1fd97f;
+}
+
+.ticket-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+input:focus {
+	outline: none;
+}
+
+img {
+	width: 1.5em;
+}
+
+.ticket-block {
+	display: flex;
+	justify-content: center;
+}
+
+.div-info-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5vw;
+}
+
+.div-img-block {
+	display: flex;
+	align-items: center;
+}
+
+#total-waste {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+#content-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#main-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.ticket-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.div-img-block {
+	display: flex;
+	gap: 0.7em;
+}
+
+@media screen and (max-width: 600px) {
+	.main-container-div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		flex-wrap: wrap;
+	}
+
+	#input-where {
+		display: flex;
+		width: 21.5em;
+	}
+
+	#input-how {
+		display: flex;
+		width: 21.5em;
+	}
+
+	.ticket-block edit-ticket-block{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		width: 75%;
+	}
+
+	#total-waste {
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	h1 {
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	.div-info-block {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 3vw;
+		width: 12em;
+		flex-wrap: wrap;
+		margin-top: 1em;
+	}
+
+	#input-where {
+		display: flex;
+		width: 16.5em;
+	}
+
+	#input-how {
+		display: flex;
+		width: 16.5em;
+	}
+
+	#total-waste {
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+
+	#content-container {
+		display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 23px;
+	}
+
+	.ticket-block {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+}
