@@ -14,9 +14,19 @@
 	<div class="main-container">
 		<div class="main-container-div">
 			<h1>Учёт моих расходов</h1>
-			<input type="text" placeholder="Куда было потрачено" id="input-where">
-			<input type="number" min="1" placeholder="Сколько было потрачено" id="input-how">
-			<button type="button" onclick="onButtonAddClick()">Добавить</button>
+			<div class="first-input">
+				<div class="where-cost">
+					<span>Куда было потрачено</span>
+					<input type="text" placeholder="Куда было потрачено" id="input-where">
+				</div>
+				<div class="how-much-cost">
+					<span>Сколько было потрачено</span>
+					<input type="number" min="1" placeholder="Сколько было потрачено" id="input-how">
+				</div>
+				<div class="btn">
+					<button type="button" onclick="onButtonAddClick()">Добавить</button>
+				</div>
+			</div>
 			<div id="total-waste">Итого: руб.</div>
 		</div>
 		<div id="content-container"></div>

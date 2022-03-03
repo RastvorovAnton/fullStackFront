@@ -55,7 +55,8 @@ const onButtonAddClick = async () => {
 	inputWhere.value = "";
 };
 
-const onClickEdit = async (index, ticketArray) => {
+const onClickEdit = (index, ticketArray) => {
+
 	const { _id, text, cost, date } = ticketArray[index];
 	let editText = text;
 	let editCost = cost;
@@ -77,10 +78,8 @@ const onClickEdit = async (index, ticketArray) => {
 	inputDate.value = editDate.slice(0, 10);
 	inputDate.type = "date";
 	let now = new Date();
-	inputDate.min = `${now.getFullYear()}-${now.getMonth() - 1}-${now.getDate()}`;
-	inputDate.max = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
-	inputDate.addEventListener("change", (Event) => {
-		editDate = Event.target.value;
+	inputDate.addEventListener("change", (event) => {
+		editDate = event.target.value;
 	});
 
 	const inputCost = document.createElement("input");
@@ -91,13 +90,13 @@ const onClickEdit = async (index, ticketArray) => {
 
 	const editSendButton = document.createElement("button");
 	editSendButton.innerText = "Edit All";
-	editSendButton.onclick = () => {
+	editSendButton.onclick = async () => {
 		if (
 			editText.trim().length !== 0 &&
 			editCost !== 0 &&
 			editDate.trim().length !== 0
 		) {
-			if (+editCost && +editCost > 0) {
+			if (+editCost) {
 				dataPost("PATCH", "http://localhost:8000/updateTicket", {
 					id: _id,
 					text: editText,
@@ -113,6 +112,7 @@ const onClickEdit = async (index, ticketArray) => {
 			} else alert("Введите числовое значение");
 		} else alert("Введите данные");
 	};
+
 	const cancelButton = document.createElement("button");
 	cancelButton.innerText = "Cancel";
 	cancelButton.onclick = () => render();
@@ -148,8 +148,8 @@ const ondblclickBlock = (id, data, type) => {
 			inputText.value = editText;
 			inputText.id = `${type}=${id}`;
 
-			const handleClick1 = (Event) => {
-				if (Event.target.id != inputText.id) {
+			const handleClick1 = (event) => {
+				if (event.target.id != inputText.id) {
 					render();
 					document.removeEventListener("click", handleClick1);
 				}
@@ -157,8 +157,8 @@ const ondblclickBlock = (id, data, type) => {
 
 			document.addEventListener("click", handleClick1);
 
-			inputText.addEventListener("blur", (Event) => {
-				editText = Event.target.value;
+			inputText.addEventListener("blur", (event) => {
+				editText = event.target.value;
 				if (editText.trim().length !== 0) {
 					dataPost("PATCH", "http://localhost:8000/updateTicket", {
 						id,
@@ -192,8 +192,8 @@ const ondblclickBlock = (id, data, type) => {
 			}
 			document.addEventListener("click", handleClick2);
 
-			inputCost.addEventListener("blur", (Event) => {
-				editCost = Event.target.value;
+			inputCost.addEventListener("blur", (event) => {
+				editCost = event.target.value;
 				if (+editCost && editCost > 0) {
 					dataPost("PATCH", "http://localhost:8000/updateTicket", {
 						id,
@@ -219,15 +219,13 @@ const ondblclickBlock = (id, data, type) => {
 			const inputDate = document.createElement("input");
 			inputDate.type = "date";
 			let now = new Date();
-			inputDate.min = `${now.getFullYear()}-${now.getMonth() - 2
-				}-${now.getDate()}`;
-			inputDate.max = `${now.getFullYear()}-${now.getMonth() + 1
-				}-${now.getDate()}`;
+			inputDate.min = "2022-01-01";
+			inputDate.max = "2022-12-31";
 			inputDate.value = data.slice(0, 10);
 			inputDate.id = `${type}=${id}`;
 
-			const handleClick3 = (Event) => {
-				if (Event.target.id != inputDate.id) {
+			const handleClick3 = (event) => {
+				if (event.target.id != inputDate.id) {
 					render();
 					document.removeEventListener("click", handleClick3);
 				}
@@ -235,8 +233,8 @@ const ondblclickBlock = (id, data, type) => {
 
 			document.addEventListener("click", handleClick3);
 
-			inputDate.addEventListener("blur", (Event) => {
-				editDate = Event.target.value;
+			inputDate.addEventListener("blur", (event) => {
+				editDate = event.target.value;
 				if (editDate.trim().length !== 0) {
 					dataPost("PATCH", "http://localhost:8000/updateTicket", {
 						id,
